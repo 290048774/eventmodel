@@ -108,7 +108,7 @@ public class ExcelEventParser {
       long start = System.currentTimeMillis();  
         
       final List<List<String>> table = new ArrayList<>();  
-      new ExcelEventParser("D:/西安教室预订导入2.xlsx").setHandler(new SimpleSheetContentsHandler(){  
+      new ExcelEventParser("D:/西安教室预订导入3-event.xlsx")/*.setHandler(new SimpleSheetContentsHandler(){  
             
           private List<String> fields;  
             
@@ -124,9 +124,13 @@ public class ExcelEventParser {
                   table.add(row);  
               }  
           }  
-      }).parse();  
+      })*/.parse();  
         
       long end = System.currentTimeMillis();  
+      
+      table.stream().forEach(t -> {
+        System.out.println(t);
+      });
         
       System.err.println(table.size());  
       System.err.println(end - start);  
